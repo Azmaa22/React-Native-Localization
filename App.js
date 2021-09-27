@@ -3,23 +3,30 @@ import {View, Text, Image, StyleSheet} from 'react-native';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import ReduxTHunk from 'redux-thunk';
-import Home from './screens/home';
 import LanguageReducer from '../section15/store/reducers/language';
+import AppNavigation from './navigation';
+import {LogBox} from 'react-native';
+import ThemeReducer from './store/reducers/theme';
+LogBox.ignoreLogs(['Reanimated 2']);
 
 const rootReducer = combineReducers({
-  language:LanguageReducer,
+  language: LanguageReducer,
+  theme:ThemeReducer,
 });
 
-const store = createStore(rootReducer,applyMiddleware(ReduxTHunk));
+const store = createStore(rootReducer, applyMiddleware(ReduxTHunk));
+
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <View  style={styles.container}>
-      
-      <Home/>
-    </View>
+
+ <View style={styles.container}> 
+   <Provider store={store}>
+
+      <AppNavigation />
+
     </Provider>
+ </View>
   );
 };
 

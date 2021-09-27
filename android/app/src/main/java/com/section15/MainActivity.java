@@ -1,6 +1,9 @@
 package com.section15;
 
 import com.facebook.react.ReactActivity;
+import android.view.WindowManager;
+import android.os.Bundle;
+
 
 public class MainActivity extends ReactActivity {
 
@@ -12,4 +15,17 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "section15";
   }
+
+
+
+/// to prevent screenshot 
+//  @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//      super.onCreate(savedInstanceState);
+  
+//      getWindow().setFlags(
+//        WindowManager.LayoutParams.FLAG_SECURE,
+//        WindowManager.LayoutParams.FLAG_SECURE
+//      );
+//    }
 }
